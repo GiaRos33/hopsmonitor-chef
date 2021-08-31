@@ -7,7 +7,8 @@ include_attribute "hops_airflow"
 
 default['hopsmonitor']['user']                    = node['install']['user'].empty? ? "hopsmon" : node['install']['user']
 default['hopsmonitor']['group']                   = node['install']['user'].empty? ? "hopsmon" : node['install']['user']
-
+default['hopsmonitor']['uid']                   = "10160"
+default['hopsmonitor']['gid']                   = "10161"
 default['hopsmonitor']['dir']                     = node['install']['dir'].empty? ? "/srv" : node['install']['dir']
 
 default['grafana']['version']                     = "6.2.4"
