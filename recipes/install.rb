@@ -1,5 +1,6 @@
 group node['hopsmonitor']['group'] do
   action :create
+  gid node['hopsmonitor']['gid']
   not_if "getent group #{node['hopsmonitor']['group']}"
   not_if { node['install']['external_users'].casecmp("true") == 0 }
 end
@@ -7,6 +8,7 @@ end
 user node['hopsmonitor']['user'] do
   gid node['hopsmonitor']['group']
   action :create
+  uid node['hopsmonitor']['uid']   
   system true
   shell "/bin/bash"
   not_if "getent passwd #{node['hopsmonitor']['user']}"
